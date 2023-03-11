@@ -1,8 +1,7 @@
-const form = document.getElementById('contact-form');
-
+const form = document.querySelector('.mbr-form');
 form.addEventListener('submit', (event) => {
 event.preventDefault();
-const email = document.getElementById('email').value;
+const email = document.getElementById('email-form4-5').value;
 const data = {
 email: email
 };
