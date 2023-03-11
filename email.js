@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Make a POST request to the server with the email data
     fetch('https://h6gve5l5ajp4xvv6e7cmxjbepa0okysb.lambda-url.sa-east-1.on.aws/', {
       method: 'POST',
-      body: JSON.stringify({ email: email }),
+      body: JSON.stringify({ email: email, subscribed: true }),
       headers: {
         'Content-Type': 'application/json'
       }
