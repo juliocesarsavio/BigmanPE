@@ -60,7 +60,7 @@
     <div class="container-fluid">
         <div class="row content-wrapper justify-content-center">
             <div class="col-lg-3 offset-lg-1 mbr-form">
-                <form action="https://gr5fj5mq5gzddvvqszza6hwd4y0wqntv.lambda-url.us-east-1.on.aws/" method="POST" class="mbr-form form-with-styler" data-verified="https://gr5fj5mq5gzddvvqszza6hwd4y0wqntv.lambda-url.us-east-1.on.aws/">
+                <form onsubmit="enviarEmail(); return false;" class="mbr-form form-with-styler">
                     <div class="row">
                         
                         <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
@@ -75,8 +75,8 @@
                             <p class="mbr-text mbr-fonts-style mb-4 display-7">O único evento online e gratuito que ensina exercícios penianos seguros para aumentar o&nbsp;<strong>comprimento, grossura e ereção do seu pênis.</strong><br><br>✔<em>Se inscreva, não fazemos spam.</em></p>
                         </div>
                         
-                        <div class="col-lg-12 col-md col-12 form-group mb-3" data-for="email">
-                            <input type="email" name="email" placeholder="Seu melhor email" data-form-field="email" class="form-control" value="" id="email-form4-5">
+                        <div class="col-lg-12 col-md col-12 form-group mb-3">
+                            <input type="email" name="email" id="email" placeholder="Seu melhor email" data-form-field="email" class="form-control" value="" id="email-form4-5" required>
                         </div>
                         <div class="col-12 col-md-auto mbr-section-btn"><button type="submit" class="btn btn-secondary display-4"><span class="mbri-letter mbr-iconfont mbr-iconfont-btn"></span>Inscrever</button></div>
                     </div>
@@ -114,7 +114,29 @@
             </div>
         </div>
     </div>
-</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;"><a href="https://mobiri.se/2910293" style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a><p style="margin: 0;text-align: center;" class="display-7">Built with &#8204;</p><a style="z-index:1" href="https://mobirise.com/offline-website-builder.html">Offline Website Maker</a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
+
+ <script>
+      function enviarEmail() {
+        const email = document.getElementById('email').value;
+        const payload = {
+          email: email,
+          subscribed: true
+        };
+
+        fetch('https://gr5fj5mq5gzddvvqszza6hwd4y0wqntv.lambda-url.us-east-1.on.aws/', {
+          method: 'POST',
+          body: JSON.stringify(payload)
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      }
+    </script>
+
+</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;"><a href="https://mobiri.se/2910293" style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a><p style="margin: 0;text-align: center;" class="display-7">Made with &#8204;</p><a style="z-index:1" href="https://mobirise.com/builder/landing-page-software.html">Landing Page Software</a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 </body>
