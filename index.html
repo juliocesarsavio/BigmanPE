@@ -85,7 +85,7 @@ grecaptcha.enterprise.ready(function() {
                         <div class="col-lg-12 col-md col-12 form-group mb-3">
                             <input type="email" name="email" id="email" placeholder="Seu melhor email" data-form-field="email" class="form-control" value="" id="email-form4-5" required>
                         </div>
-                        <div class="col-12 col-md-auto mbr-section-btn"><button type="submit" class="btn btn-secondary display-4"><span class="mbri-letter mbr-iconfont mbr-iconfont-btn"></span>Inscrever</button></div>
+                        <div class="col-12 col-md-auto mbr-section-btn"><button type="submit" id="submit" class="btn btn-secondary display-4"><span class="mbri-letter mbr-iconfont mbr-iconfont-btn"></span>Inscrever</button></div>
                     </div>
                 </form>
             </div>
@@ -124,32 +124,35 @@ grecaptcha.enterprise.ready(function() {
 
 <script>
   function enviarEmail() {
-    const email = document.getElementById('email').value;
-    const payload = {
-      email: email,
-      subscribed: true
-    };
+  // Desabilita o botão de envio
+  document.getElementById('submit').disabled = true;
 
-    fetch('https://gr5fj5mq5gzddvvqszza6hwd4y0wqntv.lambda-url.us-east-1.on.aws/', {
-      method: 'POST',
-      body: JSON.stringify(payload),
-      headers: {
-        'Origin': 'https://www.bigmanpe.com'
-      }
-    })
-    .then(response => {
-      console.log(response);
-      if (response.ok) {
-        window.location.replace('/wconfirm.html');
-      } else {
-        window.location.replace('/werror.html');
-      }
-    })
-    .catch(error => {
-      console.error(error);
-      window.location.replace('/werror.html');
-    });
-  }
+  const email = document.getElementById('email').value;
+  const payload = {
+    email: email,
+    subscribed: true
+  };
+
+  fetch('https://gr5fj5mq5gzddvvqszza6hwd4y0wqntv.lambda-url.us-east-1.on.aws/', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+    headers: {
+      'Origin': 'https://www.bigmanpe.com'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      window.location.href = "/wconfirm.html";
+    } else {
+      window.location.href = "/werror.html";
+    }
+  })
+  .catch(error => {
+    console.error(error);
+    window.location.href = "/werror.html";
+  });
+}
+
 </script>
 
 
